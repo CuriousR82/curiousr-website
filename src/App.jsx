@@ -1,11 +1,12 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Art from "./pages/Art";
 import About from "./pages/About";
 import { useState } from "react";
+import Footer from "./components/Footer";
 
 function App() {
   const [isLight, setIsLight] = useState(true);
@@ -19,9 +20,10 @@ function App() {
     //   hiughiwrug
     // </div>
 
-    <div className={`h-[100%] w-[100%] ${isLight ? "lightMode" : "darkMode"}`}>
-      <Navbar toggleMode={toggleMode} isLight={isLight} />
-      <div className="max-[600px]:mx-12 max-[980px]:mx-24 min-[980px]:mx-40 pt-24">
+    <div className={`${isLight ? "lightMode" : "darkMode"}  
+     min-h-screen `}>
+      <Header toggleMode={toggleMode} isLight={isLight} />
+      <div>
         <Routes>
           <Route path="/" element={<Home isLight={isLight} />} />
           <Route path="/projects" element={<Projects isLight={isLight} />} />
@@ -29,6 +31,7 @@ function App() {
           <Route path="/about" element={<About isLight={isLight} />} />
         </Routes>
       </div>
+      <Footer/>
     </div>
   );
 }

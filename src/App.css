@@ -11,14 +11,14 @@
 }
 
 .lightMode {
-  background-color: #fef8f1;
+  background-color: white;
   /* color: #fef8f1c7; */
   /* color: black; */
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .darkMode {
-  background-color: #2e313c;
+  background-color: black;
   /* color: white; */
   transition: background-color 0.5s ease, color 0.5s ease;
 }
