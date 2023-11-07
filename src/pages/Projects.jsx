@@ -1,11 +1,32 @@
-import React from "react";
-// import GetData from "../components/GetData.js"; 
-// const dotenv = require('dotenv');
+import { Client } from '@notionhq/client';
+import React, { useState, useEffect} from "react";
+
 
 const Projects = ({ isLight }) => {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch('http://localhost:4000/project-data')
+            .then((response) => {
+                // console.log("response")
+                // console.log(response)
+                response.json().then((dataFromServer) => {
+                    // console.log("data")
+                    // console.log(dataFromServer.results)
+                    setData(dataFromServer.results);
+                })
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+                setLoading(false);
+            });
+    }, []);
+
   return (
     <div>
         {/* <GetData /> */}
+        {/* <NotionComponent/> */}
       <div>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet excepturi
         dolore minima laborum necessitatibus modi velit eligendi placeat
@@ -20,6 +41,13 @@ const Projects = ({ isLight }) => {
         Magnam dolore tempore animi at culpa necessitatibus amet eveniet?
         Voluptate, repudiandae?
       </div>
+      {loading &&
+      data.map((item) => {
+        // console.log(item)
+        return (<p key={item.id}>{item.id}</p>)
+      })
+    //   "loaded"
+      }
       <br />
     </div>
   );
