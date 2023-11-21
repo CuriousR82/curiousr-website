@@ -21,18 +21,18 @@ export default function Header({ toggleMode, isLight }) {
     return (
         <>
             <header className="text-gray-600 body-font">
-                <div className="container mx-auto flex flex-wrap px-24 py-6 flex-col md:flex-row items-center">
+                <div className="container mx-auto flex flex-wrap px-12 py-6 flex-col md:flex-row items-center">
                     <a className={`flex title-font font-semibold items-center ${textColor} mb-4 md:mb-0`}>
-                        <span className="text-2xl">CuriousR</span>
+                        <span className="text-2xl text-[#5c7ad6]">CuriousR</span>
                     </a>
                     <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
-                        <NavLink to="/" className={` mr-5 ${textColor} hover:text-[#E47F84] mr-5`}>
+                        <NavLink to="/" className={` mr-5 ${textColor} hover:text-[#5c7ad6] mr-5`}>
                             HOME
                         </NavLink>
-                        <NavLink to="/projects" className={` mr-5 ${textColor} hover:text-[#E47F84]`}>
+                        <NavLink to="/projects" className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
                             PROJECTS
                         </NavLink>
-                        <NavLink to="/art" className={` mr-5 ${textColor} hover:text-[#E47F84]`}>
+                        <NavLink to="/art" className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
                             ART
                         </NavLink>
                         {/* <a className="mr-5 hover:text-gray-900">Second Link</a>

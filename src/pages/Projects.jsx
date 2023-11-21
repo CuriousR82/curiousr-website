@@ -1,5 +1,6 @@
 import { Client } from '@notionhq/client';
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import ProjectCard from '../components/ProjectCard';
 
 
 const Projects = ({ isLight }) => {
@@ -14,7 +15,10 @@ const Projects = ({ isLight }) => {
                 response.json().then((dataFromServer) => {
                     // console.log("data")
                     // console.log(dataFromServer.results)
+
                     setData(dataFromServer.results);
+                    console.log(dataFromServer.results);
+                    // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
                 })
             })
             .catch((error) => {
@@ -23,34 +27,24 @@ const Projects = ({ isLight }) => {
             });
     }, []);
 
-  return (
-    <div>
-        {/* <GetData /> */}
-        {/* <NotionComponent/> */}
-      <div>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet excepturi
-        dolore minima laborum necessitatibus modi velit eligendi placeat
-        quisquam quibusdam nam vitae qui quis adipisci iure porro distinctio,
-        incidunt perferendis iusto tempora similique ipsam nostrum commodi!
-        Impedit hic soluta distinctio totam minima repellat aspernatur.
-        Repellendus, autem minima nesciunt deleniti odio temporibus eligendi ut
-        facere iste possimus accusantium quisquam aspernatur et quod maxime ea
-        molestiae recusandae deserunt repudiandae quam est voluptate! Distinctio
-        ut, blanditiis perferendis optio alias culpa ratione saepe? Repudiandae
-        aut consequuntur corporis neque, explicabo voluptatibus odit sint eaque?
-        Magnam dolore tempore animi at culpa necessitatibus amet eveniet?
-        Voluptate, repudiandae?
-      </div>
-      {loading &&
-      data.map((item) => {
-        // console.log(item)
-        return (<p key={item.id}>{item.id}</p>)
-      })
-    //   "loaded"
-      }
-      <br />
-    </div>
-  );
+    return (
+
+        <>
+            <section className="container min-h-screen mx-auto px-12 py-6 items-center justify-center text-gray-600 body-font">
+                <h1 className='text-xl font-semibold text-[#5c7ad6] mb-4'>Projects</h1>
+                <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between">
+                    {/* {data.map((project) => <>{project.id}</>)} 
+                        {data.map((project) => <>{project.properties.Github.url}</>)}  */}
+                    {data.map((project) => <ProjectCard key={project.id} data={project} isLight={isLight} />)}
+                    {/* <ProjectCard data={data[0]} />  */}
+
+                </div>
+            </section>
+
+
+
+        </>
+    );
 };
 
 export default Projects;

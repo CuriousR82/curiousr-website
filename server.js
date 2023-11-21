@@ -11,6 +11,7 @@ const notion = new Client({
 
 // app.use(cors())
 
+// Projects
 app.get('/project-data', async (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
   try {
