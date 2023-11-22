@@ -1,15 +1,15 @@
 import { Client } from '@notionhq/client';
 import React, { useState, useEffect } from "react";
-import ProjectCard from '../components/ProjectCard';
+import ArtCard from '../components/ArtCard';
 
 
-const Projects = ({ isLight, numItem }) => {
+const Arts = ({ isLight, numItem }) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     // console.log(numItem);
 
     useEffect(() => {
-        fetch('http://localhost:4000/project-data')
+        fetch('http://localhost:4000/art-data')
             .then((response) => {
                 // console.log("response")
                 // console.log(response)
@@ -40,10 +40,10 @@ const Projects = ({ isLight, numItem }) => {
                     {/* {data.map((project) => <ProjectCard key={project.id} data={project} isLight={isLight} />)} */}
                     {(0 < numItem) && data.map((project, index) => {
                         if (index < numItem) {
-                            return <ProjectCard key={project.id} data={project} isLight={isLight} />
+                            return <ArtCard key={project.id} data={project} isLight={isLight} />
                         } 
                     })}
-                    {(numItem < 0) && data.map((project) => <ProjectCard key={project.id} data={project} isLight={isLight} />)}
+                    {(numItem < 0) && data.map((project) => <ArtCard key={project.id} data={project} isLight={isLight} />)}
 
                     {/* {data.forEach((project, index) => {
                         console.log(numItem);
@@ -64,4 +64,4 @@ const Projects = ({ isLight, numItem }) => {
     );
 };
 
-export default Projects;
+export default Arts;

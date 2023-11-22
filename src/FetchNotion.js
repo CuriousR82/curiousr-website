@@ -3,7 +3,7 @@ const { Client } = require('@notionhq/client');
 dotenv.config();
 
 // const notion = new Client({ auth: process.env.REACT_APP_NOTION_API_KEY });
-const databaseId = process.env.REACT_APP_NOTION_DATABASE_ID;
+const databaseId = process.env.REACT_APP_PROJECTS_DATABASE_ID;
 console.log(process.env.REACT_APP_NOTION_API_KEY);
 console.log(databaseId);
 

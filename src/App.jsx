@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
-import Art from "./pages/Art";
+import Arts from "./pages/Arts";
 import About from "./pages/About";
 import { useState } from "react";
 import Footer from "./components/Footer";
@@ -26,8 +26,8 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home isLight={isLight} />} />
-          <Route path="/projects" element={<Projects isLight={isLight} />} />
-          <Route path="/art" element={<Art isLight={isLight} />} />
+          <Route path="/projects" element={<Projects isLight={isLight} numItem={-1} />} />
+          <Route path="/art" element={<Arts isLight={isLight} numItem={-1} />} />
           <Route path="/about" element={<About isLight={isLight} />} />
         </Routes>
       </div>

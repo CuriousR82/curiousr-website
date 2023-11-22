@@ -47,7 +47,7 @@ const Navbar = ({ toggleMode, isLight }) => {
         </li>
         <li className="">
           <NavLink
-            to="/art"
+            to="/s"
             className={`text-base ${textColor} hover:text-[#E47F84]`}
           >
             ART
