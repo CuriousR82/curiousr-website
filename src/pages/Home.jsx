@@ -1,6 +1,6 @@
 import React from "react";
 import Info from "../components/Info";
-import Projects from "./Projects";
+import ProjectSection from "../components/ProjectSection";
 import Arts from "./Arts";
 
 const Home = ({ isLight }) => {
@@ -9,7 +9,7 @@ const Home = ({ isLight }) => {
         <section className="flex min-h-screen flex-col items-center justify-center text-gray-600 body-font">
             <div className="container mx-auto flex gap-20 py-6 flex-col mt-72">
                 <Info isLight={isLight} />
-                <Projects isLight={isLight} numItem={3}/>
+                <ProjectSection isLight={isLight} numItem={3}/>
                 <Arts isLight={isLight} numItem={3}/>
             </div>
         </section>
