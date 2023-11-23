@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 import ProjectSection from '../components/ProjectSection';
 
 
-const Projects = ({ isLight }) => {
+const Projects = ({ isLight, projectData }) => {
     
     return (
         <section className='min-h-screen transition'>
-            <ProjectSection isLight={isLight} numItem={-1} />
+            <ProjectSection isLight={isLight} numItem={-1} projectData={projectData} />
         </section>
     );
 };

@@ -5,65 +5,23 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import '../App.css'
 
 
-const ProjectSection = ({ isLight, numItem }) => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    // console.log(numItem);
-
-    useEffect(() => {
-        fetch('http://localhost:4000/project-data')
-            .then((response) => {
-                // console.log("response")
-                // console.log(response)
-                response.json().then((dataFromServer) => {
-                    // console.log("data")
-                    // console.log(dataFromServer.results)
-
-                    setData(dataFromServer.results);
-                    console.log(dataFromServer.results);
-                    // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
-                })
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-                setLoading(false);
-            });
-    }, []);
-
+const ProjectSection = ({ isLight, numItem, projectData }) => {
+    
     return (
-
         <>
-            <section className="example-style container  mx-auto px-12 py-6 items-center justify-center text-gray-600 body-font">
-                {/* <ScrollAnimation animateIn="flipInY" duration={15}> */}
-                    <h1 className='text-2xl font-semibold text-[#5c7ad6] mb-4'>Projects</h1>
-                    <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between">
-                        {/* {data.map((project) => <>{project.id}</>)} 
-                        {data.map((project) => <>{project.properties.Github.url}</>)}  */}
-
-                        {/* {data.map((project) => <ProjectCard key={project.id} data={project} isLight={isLight} />)} */}
-                        {(0 < numItem) && data.map((project, index) => {
-                            if (index < numItem) {
-                                return <ProjectCard key={project.id} data={project} isLight={isLight} />
-                            }
-                        })}
-                        {(numItem < 0) && data.map((project) => <ProjectCard key={project.id} data={project} isLight={isLight} />)}
-
-                        {/* {data.forEach((project, index) => {
-                        console.log(numItem);
-
+            <section className="fade-on-load container  mx-auto px-12 py-6 items-center justify-center text-gray-600 body-font">
+                <h1 className='text-2xl font-semibold text-[#5c7ad6] mb-4'>Projects</h1>
+                <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between">
+                    {(0 < numItem) && projectData.map((project, index) => {
                         if (index < numItem) {
                             return <ProjectCard key={project.id} data={project} isLight={isLight} />
                         }
-                    })} */}
+                        console.log("REACHES SECTION")
+                    })}
+                    {(numItem < 0) && projectData.map((project) => <ProjectCard key={project.id} data={project} isLight={isLight} />)}
 
-                        {/* <ProjectCard data={data[0]} />  */}
-
-                    </div>
-                {/* </ScrollAnimation> */}
+                </div>
             </section>
-
-
-
         </>
     );
 };

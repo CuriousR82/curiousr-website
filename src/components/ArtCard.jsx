@@ -21,13 +21,6 @@ const ArtCard = ({ data, artKey, isLight }) => {
 
     return (
         <>
-            {/* <div key={projectKey} className={`p-6 my-3 ${textColor} bg-[#353535] border border-[#888888] rounded-md`}>
-                {console.log("HERE")}
-                {console.log(data.properties.Github.url)}
-                {data.properties.Github.url}
-                <h1 className={`w-32 ${textColor}`}>{projectTitle}</h1>
-            </div> */}
-
             <div className={`md:w-80 lg:w-[22rem] mb-12 shadow-[0_0px_25px_-5px_rgba(158,158,158,0.4)] hover:shadow-[0_0px_25px_-5px_rgba(92,122,214,1.0)] transition border border-gray-200 border-opacity-60 rounded-lg`}>
                 <div className="h-full overflow-hidden ">
                     <img className="rounded-t-md lg:h-48  w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog"></img>

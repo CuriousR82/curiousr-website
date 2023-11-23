@@ -1,44 +1,42 @@
 * {
-  /* font-family: "Poppins" */
+    /* font-family: "Poppins" */
 }
 
 .App {
-  /* height: 100%; */
-  /* width: 100%; */
-  /* font-family: 'Poppins', sans-serif; */
-  /* font-size: 32px; */
-  /* font-weight: 400; */
+    /* height: 100%; */
+    /* width: 100%; */
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-size: 32px; */
+    /* font-weight: 400; */
 }
 
 .lightMode {
-  background-color: white;
-  /* color: #fef8f1c7; */
-  /* color: black; */
-  transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: white;
+    /* color: #fef8f1c7; */
+    /* color: black; */
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .darkMode {
-  background-color: rgb(41, 41, 41);
-  /* color: white; */
-  transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: rgb(41, 41, 41);
+    /* color: white; */
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .frame {
-  /* margin: 0px 150px 0px 150px; */
+    /* margin: 0px 150px 0px 150px; */
 }
 
-.example-style {
-    animation: fade-in 3s;
-  }
+.fade-on-load {
+    animation: fade-in 1s;
+}
 
 @keyframes fade-in {
     from {
-      opacity: 0;
+        opacity: 0;
     }
+
     to {
-      opacity: 100;
+        opacity: 100;
     }
-  }
-
-
-
+}

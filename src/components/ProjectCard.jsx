@@ -21,18 +21,10 @@ const ProjectCard = ({ data, projectKey, isLight }) => {
 
     return (
         <>
-            {/* <div key={projectKey} className={`p-6 my-3 ${textColor} bg-[#353535] border border-[#888888] rounded-md`}>
-                {console.log("HERE")}
-                {console.log(data.properties.Github.url)}
-                {data.properties.Github.url}
-                <h1 className={`w-32 ${textColor}`}>{projectTitle}</h1>
-            </div> */}
-
             <div className={`md:w-80 lg:w-[22rem] mb-12 shadow-[0_0px_25px_-5px_rgba(158,158,158,0.4)] hover:shadow-[0_0px_25px_-5px_rgba(92,122,214,1.0)] transition border border-gray-200 border-opacity-60 rounded-lg`}>
                 <div className="h-full overflow-hidden ">
                     <img className="rounded-t-md lg:h-48  w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog"></img>
                     <div className="p-6 flex flex-col justify-between">
-                        {/* <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2> */}
                         <div>
                             <h1 className={`title-font text-lg font-medium ${textColor} mb-3`}>{projectTitle}</h1>
                             <p className="leading-relaxed mb-3">{description}</p>
