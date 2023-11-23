@@ -2,6 +2,7 @@ import { Client } from '@notionhq/client';
 import React, { useState, useEffect } from "react";
 import ProjectCard from './ProjectCard';
 import ScrollAnimation from 'react-animate-on-scroll';
+import '../App.css'
 
 
 const ProjectSection = ({ isLight, numItem }) => {
@@ -32,7 +33,7 @@ const ProjectSection = ({ isLight, numItem }) => {
     return (
 
         <>
-            <section className="container  mx-auto px-12 py-6 items-center justify-center text-gray-600 body-font">
+            <section className="example-style container  mx-auto px-12 py-6 items-center justify-center text-gray-600 body-font">
                 {/* <ScrollAnimation animateIn="flipInY" duration={15}> */}
                     <h1 className='text-2xl font-semibold text-[#5c7ad6] mb-4'>Projects</h1>
                     <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between">
