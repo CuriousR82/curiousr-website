@@ -6,7 +6,7 @@ import '../App.css'
 
 
 const ProjectSection = ({ isLight, numItem, projectData }) => {
-    
+
     return (
         <>
             <section className="fade-on-load container  mx-auto px-12 py-6 items-center justify-center text-gray-600 body-font">
@@ -16,7 +16,7 @@ const ProjectSection = ({ isLight, numItem, projectData }) => {
                         if (index < numItem) {
                             return <ProjectCard key={project.id} data={project} isLight={isLight} />
                         }
-                        console.log("REACHES SECTION")
+                        // console.log("REACHES SECTION")
                     })}
                     {(numItem < 0) && projectData.map((project) => <ProjectCard key={project.id} data={project} isLight={isLight} />)}
 

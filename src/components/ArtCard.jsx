@@ -18,33 +18,25 @@ const ArtCard = ({ data, artKey, isLight }) => {
     }
 
     const tags = data.properties.Tags.multi_select;
-    const tagColourOptions = ["bg-[#5c7ad6]", "bg-[#f56565]", "bg-[#48bb54]", "bg-[#ed8936]", "bg-[#9f7aea]", "bg-[#38b2ac]", "bg-[#718096]", "bg-[#e65390]"];
 
     // svg icon link https://flowbite.com/icons/
 
     return (
         <>
             <div className={`md:w-80 lg:w-[22rem] mb-12 shadow-[0_0px_25px_-5px_rgba(158,158,158,0.4)] hover:shadow-[0_0px_25px_-5px_rgba(92,122,214,1.0)] transition border border-gray-200 border-opacity-60 rounded-lg`}>
-                <div className="h-full overflow-hidden ">
-                    <img className="rounded-t-md lg:h-48  w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog"></img>
-                    <div className="p-6 flex flex-col justify-between">
+            <div className="flex flex-col h-full overflow-hidden ">
+                    <img className=" rounded-t-md lg:h-48  w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog"></img>
+                    <div className="p-5 flex flex-col h-full justify-between">
                         {/* <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2> */}
                         <div>
-                            <h1 className={`title-font text-lg font-medium ${textColor} mb-3`}>{projectTitle}</h1>
-                            <p className="leading-relaxed mb-3">{description}</p>
+                            <h1 className={`title-font text-lg font-medium ${textColor} mb-2`}>{projectTitle}</h1>
+                            <p className="leading-relaxed mb-4 text-sm text-[#808080]">{description}</p>
                         </div>
 
 
                         <div className="flex items-center justify-between flex-wrap ">
-                            {/* <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                                <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14"></path>
-                                    <path d="M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a> */}
-
                             <div className={"flex flex-wrap flex-row gap-1"}>
-                                {tags.map((tag) => <p className={`py-px p-1 rounded text-sm text-white ${tagColourOptions[Math.floor(Math.random() * tagColourOptions.length)]}`}>{tag.name}</p>)}
+                                {tags.map((tag) => <p className={`py-[2.5px] p-1.5 rounded text-xs text-white bg-[#5c7ad6]`}>{tag.name}</p>)}
                             </div>
 
                             <div className='flex flex-row items-center'>

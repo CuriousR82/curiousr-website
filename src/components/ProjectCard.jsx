@@ -1,35 +1,11 @@
 import React from 'react'
-
-import { ReactComponent as NotionLight } from "../logos/notion-light.svg";
-import { ReactComponent as NotionDark } from "../logos/notion-dark.svg";
-import { ReactComponent as JSLight } from "../logos/js-light.svg";
-import { ReactComponent as JSDark } from "../logos/js-dark.svg";
-import { ReactComponent as ThreeJSLight } from "../logos/threejs-light.svg";
-import { ReactComponent as ThreeJSDark } from "../logos/threejs-dark.svg";
-import { ReactComponent as ReactLight } from "../logos/react-light.svg";
-import { ReactComponent as ReactDark } from "../logos/react-dark.svg";
-import { ReactComponent as MongoLight } from "../logos/mongodb-light.svg";
-import { ReactComponent as MongoDark } from "../logos/mongodb-dark.svg";
-import { ReactComponent as NodeLight } from "../logos/nodejs-light.svg";
-import { ReactComponent as NodeDark } from "../logos/nodejs-dark.svg";
-import { ReactComponent as FirebaseLight } from "../logos/firebase-light.svg";
-import { ReactComponent as FirebaseDark } from "../logos/firebase-dark.svg";
-import { ReactComponent as SwiftLight } from "../logos/swift-light.svg";
-import { ReactComponent as SwiftDark } from "../logos/swift-dark.svg";
-import { ReactComponent as GoLight } from "../logos/go-light.svg";
-import { ReactComponent as GoDark } from "../logos/go-dark.svg";
-import { ReactComponent as ExpressLight } from "../logos/express-light.svg";
-import { ReactComponent as ExpressDark } from "../logos/express-dark.svg";
-import { ReactComponent as PythonLight } from "../logos/python-light.svg";
-import { ReactComponent as PythonDark } from "../logos/python-dark.svg";
-import { ReactComponent as CPPLight } from "../logos/cpp-light.svg";
-import { ReactComponent as CPPDark } from "../logos/cpp-dark.svg";
+import strToLogo from './logoUtils';
 
 const ProjectCard = ({ data, projectKey, isLight }) => {
     const projectTitle = data.properties.Name.title[0].plain_text;
     const description = data.properties.Description.rich_text[0].plain_text;
     const githubUrl = data.properties.Github.url;
-    
+
     let burgerColor;
     let textColor;
     let shadowColor;
@@ -43,55 +19,32 @@ const ProjectCard = ({ data, projectKey, isLight }) => {
         textColor = "text-[#fef8f1c7]";
     }
 
-    // const tags = data.properties.Tags.multi_select;
-    // const tagColourOptions = ["bg-[#5c7ad6]", "bg-[#f56565]", "bg-[#48bb54]", "bg-[#ed8936]", "bg-[#9f7aea]", "bg-[#38b2ac]", "bg-[#718096]", "bg-[#e65390]"];
+    function toLogo(str) {
+        // console.log("tologo called")
+        return strToLogo(str, isLight); // Call the utility function with isLight as an argument
+    }
+
+    const tags = data.properties.Tags.multi_select;
+    // console.log(tags)
 
     // svg icon link https://flowbite.com/icons/
 
     return (
         <>
             <div className={`md:w-80 lg:w-[22rem] mb-12 shadow-[0_0px_25px_-5px_rgba(158,158,158,0.4)] hover:shadow-[0_0px_25px_-5px_rgba(92,122,214,1.0)] transition border border-gray-200 border-opacity-60 rounded-lg`}>
-                <div className="h-full overflow-hidden ">
-                    <img className="rounded-t-md lg:h-48  w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog"></img>
-                    <div className="p-6 flex flex-col justify-between">
+                <div className="flex flex-col h-full overflow-hidden ">
+                    <img className=" rounded-t-md lg:h-48  w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog"></img>
+                    <div className="p-5 flex flex-col h-full justify-between">
                         <div>
-                            <h1 className={`title-font text-lg font-medium ${textColor} mb-3`}>{projectTitle}</h1>
-                            <p className="leading-relaxed mb-3">{description}</p>
+                            <h1 className={`title-font text-lg font-medium ${textColor} mb-2`}>{projectTitle}</h1>
+                            <p className="leading-relaxed mb-4 text-sm text-[#808080]">{description}</p>
                         </div>
 
 
                         <div className="flex items-center justify-between flex-wrap ">
-                            {/* <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                                <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14"></path>
-                                    <path d="M12 5l7 7-7 7"></path>
-                                </svg>
-                            </a> */}
                             <div className={"flex flex-wrap flex-row gap-1 items-center"}>
-                                {/* <NotionDark className={"w-6 h-6"} />
-                                <NotionLight className={"w-6 h-6"} />
-                                <JSDark className={"w-6 h-6"} />
-                                <JSLight className={"w-6 h-6"} />
-                                <ThreeJSDark className={"w-6 h-6"} />
-                                <ThreeJSLight className={"w-6 h-6"} />
-                                <ReactDark className={"w-6 h-6"} />
-                                <ReactLight className={"w-6 h-6"} />
-                                <MongoDark className={"w-6 h-6"} />
-                                <MongoLight className={"w-6 h-6"} />
-                                <NodeDark className={"w-[26px] h-[26px]"} />
-                                <NodeLight className={"w-[26px] h-[26px]"} />
-                                <FirebaseDark className={"w-6 h-6"} />
-                                <FirebaseLight className={"w-6 h-6"} />
-                                <SwiftDark className={"w-[22px] h-[22px]"} />
-                                <SwiftLight className={"w-[26px] h-[26px]"} />
-                                <GoDark className={"w-8 h-8"} />
-                                <GoLight className={"w-8 h-8"} />
-                                <ExpressDark className={"w-5 h-5"} />
-                                <ExpressLight className={"w-5 h-5"} />
-                                <PythonDark className={"w-[20px] h-[20px]"} />
-                                <PythonLight className={"w-[20px] h-[20px]"} />
-                                <CPPDark className={"w-[26px] h-[26px]"} />
-                                <CPPLight className={"w-[26px] h-[26px]"} /> */}
+                                {tags.map((tag) => <p key={tag.id} className={`py-px rounded text-sm text-white`}>{toLogo(tag.name)}</p>)}
+                                {/* {console.log("tag rendering")} */}
                             </div>
 
                             <div className='flex flex-row items-center'>

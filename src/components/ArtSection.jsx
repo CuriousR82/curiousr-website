@@ -17,7 +17,7 @@ const ArtSection = ({ isLight, numItem, artData }) => { // retrieves data from A
                         if (index < numItem) {
                             return <ArtCard key={project.id} data={project} isLight={isLight} /> 
                         } 
-                        console.log("NEW METHOD WORKING");
+                        // console.log("NEW METHOD WORKING");
                     })}
 
                     {(numItem < 0) && artData.map((project) => <ArtCard key={project.id} data={project} isLight={isLight} />)}
