@@ -35,11 +35,11 @@ const ProjectCard = ({ data, projectKey, isLight }) => {
                 <div className="flex flex-col h-full overflow-hidden ">
                     <img className=" rounded-t-md lg:h-48  w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog"></img>
                     <div className="p-5 flex flex-col h-full justify-between">
+
                         <div>
                             <h1 className={`title-font text-lg font-medium ${textColor} mb-2`}>{projectTitle}</h1>
                             <p className="leading-relaxed mb-4 text-sm text-[#808080]">{description}</p>
                         </div>
-
 
                         <div className="flex items-center justify-between flex-wrap ">
                             <div className={"flex flex-wrap flex-row gap-1 items-center"}>

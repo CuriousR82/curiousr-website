@@ -20,8 +20,8 @@ export default function Header({ toggleMode, isLight }) {
 
     return (
         <>
-            <header className="text-gray-600 body-font">
-                <div className="container mx-auto flex flex-wrap px-12 py-6 flex-col md:flex-row items-center">
+            <header className="header-class text-gray-600 body-font backdrop-blur-lg z-20">
+                <div className="container mx-auto flex flex-wrap px-12 py-4 flex-col md:flex-row items-center">
                     <a className={`flex title-font font-semibold items-center ${textColor} mb-4 md:mb-0`}>
                         <span className="text-2xl text-[#5c7ad6]">CuriousR</span>
                     </a>

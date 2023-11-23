@@ -40,3 +40,8 @@
         opacity: 100;
     }
 }
+
+.header-class {
+    position: fixed !important;
+    width: 100%;
+}
