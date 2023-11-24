@@ -64,7 +64,7 @@ function App() {
         <div className={`${isLight ? "lightMode" : "darkMode"}  
      min-h-screen `}>
             <Header toggleMode={toggleMode} isLight={isLight} />
-            <div>
+            <div className="">
                 <Routes>
                     <Route path="/" element={<Home isLight={isLight} artData={artData} projectData={projectData} />} />
                     <Route path="/projects" element={<Projects isLight={isLight} numItem={-1} projectData={projectData} />} />

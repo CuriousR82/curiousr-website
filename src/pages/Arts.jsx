@@ -7,7 +7,7 @@ const Arts = ({ isLight, artData }) => { // retrieves the whole array of data fo
 
     return (
 
-        <section className='min-h-screen'>
+        <section className='min-h-screen pt-28'>
             <ArtSection isLight={isLight} numItem={-1} artData={artData} /> {/* sends the whole data to ArtSection */ }
         </section>
     );

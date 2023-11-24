@@ -9,8 +9,8 @@ import ExperienceSection from "../components/ExperienceSection";
 const Home = ({ isLight, artData, projectData }) => {
     return <>
         {/* keep below two lines as is (the css), its the basic outline fot the page container. */}
-        <section className="fade-on-load flex min-h-screen flex-col items-center justify-center text-gray-600 body-font">
-            <div className="container mx-auto flex gap-20 py-6 flex-col mt-72">
+        <section className=" pb-40 fade-on-load flex min-h-screen flex-col items-center justify-center text-gray-600 body-font">
+            <div className="container mx-auto flex gap-24 flex-col mt-72">
                 
                     <Info isLight={isLight} />
                     <ExperienceSection isLight={isLight} />
