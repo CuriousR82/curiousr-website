@@ -7,8 +7,15 @@ import Arts from "./pages/Arts";
 import About from "./pages/About";
 import { useState, useEffect } from "react";
 import Footer from "./components/Footer";
+import { useLocation } from 'react-router-dom';
+
 
 function App() {
+    const location = useLocation(); 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
     // fetch data here from 4000
     const [isLight, setIsLight] = useState(true);
     const toggleMode = () => { setIsLight(!isLight); };
@@ -61,8 +68,7 @@ function App() {
 
     return (
 
-        <div className={`${isLight ? "lightMode" : "darkMode"}  
-     min-h-screen `}>
+        <div className={`${isLight ? "lightMode" : "darkMode"} min-h-screen `}>
             <Header toggleMode={toggleMode} isLight={isLight} />
             <div className="">
                 <Routes>

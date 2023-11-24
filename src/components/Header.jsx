@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { DarkModeToggle } from '@anatoliygatt/dark-mode-toggle';
 import { Squash as Hamburger } from 'hamburger-react'
 import "../App.css"
@@ -20,6 +20,26 @@ const Header = ({ toggleMode, isLight }) => {
         textColor = "text-[#fef8f1c7]";
     }
 
+    const navigate = useNavigate();
+    const toSection = (str) => {
+        if (window.location.pathname == '/') {
+            // If at the root, scroll to the section
+            const element = document.getElementById(str);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            navigate('/');
+            setTimeout(() => {
+                const element = document.getElementById(str);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 0);
+        }
+    };
+
+
     return (
         <>
             {/* PC header (md ~) */}
@@ -30,18 +50,16 @@ const Header = ({ toggleMode, isLight }) => {
                         <span className="text-2xl text-[#5c7ad6]">CuriousR</span>
                     </a>
                     <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
-                        <NavLink to="/" className={` mr-5 ${textColor} hover:text-[#5c7ad6] mr-5`}>
+
+                        <button onClick={() => toSection("home-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6] mr-5`}>
                             HOME
-                        </NavLink>
-                        <NavLink to="/projects" className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
+                        </button>
+                        <button onClick={() => toSection("project-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
                             PROJECTS
-                        </NavLink>
-                        <NavLink to="/art" className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
+                        </button>
+                        <button onClick={() => toSection("art-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
                             ART
-                        </NavLink>
-                        {/* <a className="mr-5 hover:text-gray-900">Second Link</a>
-                    <a className="mr-5 hover:text-gray-900">Third Link</a>
-                    <a className="mr-5 hover:text-gray-900">Fourth Link</a> */}
+                        </button>
                     </nav>
 
                     <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
@@ -88,7 +106,6 @@ const Header = ({ toggleMode, isLight }) => {
                     </button>
                 </div>
 
-
             </header>
 
             {/* mobile header (~ md) */}
@@ -105,15 +122,15 @@ const Header = ({ toggleMode, isLight }) => {
                     {isOpen &&
                         <>
                             <nav className="fade-on-load flex flex-wrap items-center text-base justify-center gap-4">
-                                <NavLink to="/" className={`${textColor} hover:text-[#5c7ad6]`}>
+                                <button onClick={() => toSection("home-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6] mr-5`}>
                                     HOME
-                                </NavLink>
-                                <NavLink to="/projects" className={`${textColor} hover:text-[#5c7ad6]`}>
+                                </button>
+                                <button onClick={() => toSection("project-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
                                     PROJECTS
-                                </NavLink>
-                                <NavLink to="/art" className={`${textColor} hover:text-[#5c7ad6]`}>
+                                </button>
+                                <button onClick={() => toSection("art-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
                                     ART
-                                </NavLink>
+                                </button>
                             </nav>
 
                             <div className="fade-on-load flex flex-row w-full justify-between items-center">

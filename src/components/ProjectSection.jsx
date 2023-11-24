@@ -10,7 +10,7 @@ const ProjectSection = ({ isLight, numItem, projectData }) => {
     return (
         <>
             <section className="fade-on-load container  mx-auto px-12 py-6 items-center justify-center text-gray-600 body-font">
-                <h1 className='text-2xl font-semibold text-[#5c7ad6] mb-4'>Projects</h1>
+                {/* <h1 className='text-2xl font-semibold text-[#5c7ad6] mb-4'>Projects</h1> */}
                 <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between">
                     {(0 < numItem) && projectData.map((project, index) => {
                         if (index < numItem) {
