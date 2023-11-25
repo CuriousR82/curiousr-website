@@ -16,7 +16,6 @@ const ProjectSection = ({ isLight, numItem, projectData }) => {
                         if (index < numItem) {
                             return <ProjectCard key={project.id} data={project} isLight={isLight} />
                         }
-                        // console.log("REACHES SECTION")
                     })}
                     {(numItem < 0) && projectData.map((project) => <ProjectCard key={project.id} data={project} isLight={isLight} />)}
 

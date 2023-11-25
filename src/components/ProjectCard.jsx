@@ -20,8 +20,7 @@ const ProjectCard = ({ data, projectKey, isLight }) => {
     }
 
     function toLogo(str) {
-        // console.log("tologo called")
-        return strToLogo(str, isLight); // Call the utility function with isLight as an argument
+        return strToLogo(str, isLight); 
     }
 
     const tags = data.properties.Tags.multi_select;

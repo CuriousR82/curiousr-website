@@ -66,16 +66,39 @@ function App() {
             });
     }, []);
 
+    // Experience Data
+    const [expData, setExpData] = useState([]);
+    const [expLoading, setExpLoading] = useState(true);
+    useEffect(() => {
+        fetch('http://localhost:4000/experience-data')
+            .then((response) => {
+                // console.log("response")
+                // console.log(response)
+                response.json().then((dataFromServer) => {
+                    // console.log("data")
+                    // console.log(dataFromServer.results)
+
+                    setExpData(dataFromServer.results);
+                    console.log(dataFromServer.results);
+                    // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
+                })
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+                setExpLoading(false);
+            });
+    }, []);
+
     return (
 
         <div className={`${isLight ? "lightMode" : "darkMode"} min-h-screen `}>
             <Header toggleMode={toggleMode} isLight={isLight} />
             <div className="">
                 <Routes>
-                    <Route path="/" element={<Home isLight={isLight} artData={artData} projectData={projectData} />} />
+                    <Route path="/" element={<Home isLight={isLight} artData={artData} projectData={projectData} expData={expData} />} />
                     <Route path="/projects" element={<Projects isLight={isLight} numItem={-1} projectData={projectData} />} />
                     <Route path="/art" element={<Arts isLight={isLight} numItem={-1} artData={artData} />} />
-                    <Route path="/about" element={<About isLight={isLight} />} />
+                    {/* <Route path="/about" element={<About isLight={isLight} />} /> */}
                 </Routes>
             </div>
             <Footer />

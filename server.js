@@ -49,6 +49,25 @@ app.get('/art-data', async (req, res) => {
   }
 });
 
+// Experiences
+app.get('/experience-data', async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+  try {
+    const response = await notion.databases.query({
+      database_id: process.env.REACT_APP_EXPERIENCES_DATABASE_ID,
+      sorts: [
+        {
+          property: 'Date',
+          direction: 'descending',
+        },
+      ],
+    });
+    res.json(response);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.listen(4000, () => {
   console.log('Server is running on port 4000');
 });
