@@ -5,6 +5,7 @@ const ProjectCard = ({ data, projectKey, isLight }) => {
     const projectTitle = data.properties.Name.title[0].plain_text;
     const description = data.properties.Description.rich_text[0].plain_text;
     const githubUrl = data.properties.Github.url;
+    const imageUrl = data.cover.file?.url || data.cover.external.url;
 
     let burgerColor;
     let textColor;
@@ -32,7 +33,8 @@ const ProjectCard = ({ data, projectKey, isLight }) => {
         <>
             <div className={`md:w-80 lg:w-[22rem] mb-12 shadow-[0_0px_25px_-5px_rgba(158,158,158,0.4)] hover:shadow-[0_0px_25px_-5px_rgba(92,122,214,1.0)] transition border border-gray-200 border-opacity-60 rounded-lg`}>
                 <div className="flex flex-col h-full overflow-hidden ">
-                    <img className=" rounded-t-md lg:h-48  w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog"></img>
+                    {/* <img className=" rounded-t-md lg:h-48  w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog"></img> */}
+                    <img className="rounded-t-md object-cover w-full" src={imageUrl} alt=""></img>
                     <div className="p-5 flex flex-col h-full justify-between">
 
                         <div>

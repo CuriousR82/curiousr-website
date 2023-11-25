@@ -4,6 +4,8 @@ const ArtCard = ({ data, artKey, isLight }) => {
     const projectTitle = data.properties.Name.title[0].plain_text;
     const description = data.properties.Description.rich_text[0].plain_text;
     const portfolioUrl = data.properties.Portfolio.url;
+    const imageUrl = data.cover.file?.url || data.cover.external.url;
+
     let burgerColor;
     let textColor;
     let shadowColor;
@@ -24,10 +26,11 @@ const ArtCard = ({ data, artKey, isLight }) => {
     return (
         <>
             <div className={`md:w-80 lg:w-[22rem] mb-12 shadow-[0_0px_25px_-5px_rgba(158,158,158,0.4)] hover:shadow-[0_0px_25px_-5px_rgba(92,122,214,1.0)] transition border border-gray-200 border-opacity-60 rounded-lg`}>
-            <div className="flex flex-col h-full overflow-hidden ">
-                    <img className=" rounded-t-md lg:h-48  w-full object-cover object-center" src="https://dummyimage.com/720x400" alt="blog"></img>
+                <div className="flex flex-col h-full overflow-hidden ">
+                    
+                    <img className="rounded-t-md object-cover w-full" src={imageUrl} alt=""></img>
                     <div className="p-5 flex flex-col h-full justify-between">
-                        {/* <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2> */}
+                        
                         <div>
                             <h1 className={`title-font text-lg font-medium ${textColor} mb-2`}>{projectTitle}</h1>
                             <p className="leading-relaxed mb-4 text-sm text-[#808080]">{description}</p>
@@ -39,7 +42,7 @@ const ArtCard = ({ data, artKey, isLight }) => {
                                 {tags.map((tag) => <p className={`py-[2.5px] p-1.5 rounded text-xs text-white bg-[#5c7ad6]`}>{tag.name}</p>)}
                             </div>
 
-                            <div className='flex flex-row items-center'>
+                            {/* <div className='flex flex-row items-center'>
                                 <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                                     <a href={`${portfolioUrl}`} target='_blank'>
                                         <svg class={`w-[22px] h-[22px] ${textColor} hover:text-[#5c7ad6] transition`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -54,7 +57,7 @@ const ArtCard = ({ data, artKey, isLight }) => {
                                         </svg>
                                     </a>
                                 </span>
-                            </div>
+                            </div> */}
 
                         </div>
                     </div>
