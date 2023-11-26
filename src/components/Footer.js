@@ -1,15 +1,20 @@
-export default function Footer() {
+export default function Footer({ isLight }) {
+
+    let bgColour = isLight ? "bg-gray-100" : "bg-[#333333]";
+    let textColor = isLight ? "text-[#2e313c]" : "text-[#fef8f1c7]";
+
     return (
+
         <>
-            <footer className="text-gray-600 body-font">
+            <footer className={`${textColor} body-font`}>
                 
-                <div className="bg-gray-100">
-                    <div className="container px-12 py-6 mx-auto flex items-center sm:flex-row flex-col">
-                        <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                <div className={`footer-transition ${bgColour}`}>
+                    <div className="container px-10 py-6 mx-auto flex items-center sm:flex-row flex-col">
+                        <a className="flex title-font font-medium items-center md:justify-start justify-center">
                             <span className="text-xl">CuriousR</span>
                         </a>
-                        <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">© hi —
-                            <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" className="text-gray-600 ml-1" target="_blank">@CuriousR</a>
+                        <p className="text-sm  sm:ml-6 sm:mt-0 mt-4">© hi —
+                            <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" className=" ml-1" target="_blank">@CuriousR</a>
                         </p>
                         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
                             <a className="text-gray-500">

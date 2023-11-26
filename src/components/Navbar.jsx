@@ -20,7 +20,7 @@ const Navbar = ({ toggleMode, isLight }) => {
 
   return (
     <nav
-      className={`flex justify-between items-center py-3 top-3 backdrop-blur-xl max-[600px]:px-12 max-[980px]:px-24 min-[980px]:px-40`}
+      className={`flex justify-between items-center py-3 top-3 backdrop-blur-xl max-[600px]:px-10 max-[980px]:px-24 min-[980px]:px-40`}
     >
       <Link to="/" className={`title text-3xl font-semibold text-[#E47F84]`}>
         CuriousR

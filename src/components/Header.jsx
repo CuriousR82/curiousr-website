@@ -45,15 +45,19 @@ const Header = ({ toggleMode, isLight }) => {
             {/* PC header (md ~) */}
             <header className={`invisible md:visible header-class text-gray-600 body-font ${isLight ? "lightMode" : "darkMode"} z-20`}>
                 {/* pc header (md ~) */}
-                <div className=" container mx-auto flex flex-wrap px-12 py-4 flex-row items-center">
+                <div className=" container mx-auto flex flex-wrap px-10 py-4 flex-row items-center">
                     <a className={`flex title-font font-semibold items-center ${textColor} md:mb-0`}>
                         <span className="text-2xl text-[#5c7ad6]">CuriousR</span>
                     </a>
                     <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
 
-                        <button onClick={() => toSection("home-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6] mr-5`}>
+                        <button onClick={() => toSection("home-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6] `}>
                             HOME
                         </button>
+                        <button onClick={() => toSection("experience-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6] `}>
+                            EXPERIENCES
+                        </button>
+
                         <button onClick={() => toSection("project-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
                             PROJECTS
                         </button>
@@ -109,8 +113,9 @@ const Header = ({ toggleMode, isLight }) => {
             </header>
 
             {/* mobile header (~ md) */}
-            <header className={`visible md:invisible header-class text-gray-600 body-font ${isLight ? "lightMode" : "darkMode"} z-20`}>
-                <div className="transition container mx-auto flex flex-col px-12 py-4 gap-3 items-start">
+            <header className={`visible md:invisible header-class text-gray-600 body-font ${isOpen ? "shadow-[0_0px_25px_-5px_rgba(158,158,158,0.4)]" : ""} 
+                                ${isLight ? "lightMode" : "darkMode"} z-20`}>
+                <div className="transition container mx-auto flex flex-col px-10 py-2 gap-3 items-start">
                     <div className="flex flex-row justify-between w-full">
                         <a className={`flex title-font font-semibold items-center ${textColor} mb-0`}>
                             <span className="text-2xl text-[#5c7ad6]">CuriousR</span>
@@ -121,19 +126,22 @@ const Header = ({ toggleMode, isLight }) => {
 
                     {isOpen &&
                         <>
-                            <nav className="fade-on-load flex flex-wrap items-center text-base justify-center gap-4">
-                                <button onClick={() => toSection("home-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6] mr-5`}>
+                            <nav className="fade-on-load flex flex-wrap items-center text-sm sm:text-base justify-center gap-4">
+                                <button onClick={() => toSection("home-section")} className={`${textColor} hover:text-[#5c7ad6]`}>
                                     HOME
                                 </button>
-                                <button onClick={() => toSection("project-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
+                                <button onClick={() => toSection("experience-section")} className={`${textColor} hover:text-[#5c7ad6] `}>
+                                    EXPERIENCES
+                                </button>
+                                <button onClick={() => toSection("project-section")} className={`${textColor} hover:text-[#5c7ad6]`}>
                                     PROJECTS
                                 </button>
-                                <button onClick={() => toSection("art-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
+                                <button onClick={() => toSection("art-section")} className={`${textColor} hover:text-[#5c7ad6]`}>
                                     ART
                                 </button>
                             </nav>
 
-                            <div className="fade-on-load flex flex-row w-full justify-between items-center">
+                            <div className="fade-on-load flex flex-row w-full justify-between pb-3 items-center">
                                 <div className="flex flex-row gap-3 items-center">
                                     <a className="text-gray-600">
                                         <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">

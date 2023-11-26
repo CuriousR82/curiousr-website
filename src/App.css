@@ -23,6 +23,10 @@
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+.footer-transition {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
 .frame {
     /* margin: 0px 150px 0px 150px; */
 }

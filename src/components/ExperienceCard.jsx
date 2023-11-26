@@ -57,7 +57,7 @@ const ExperienceCard = ({ isLight, exp }) => {
                             <p className="leading-relaxed text-sm text-[#808080] mb-2">{location}</p>
                             <p className="leading-relaxed text-base text-[#808080] mb-2">{description}</p>
                             <div className={"flex flex-wrap flex-row gap-1"}>
-                                {skills.map((skill) => <p className={`py-[2.5px] p-1.5 rounded text-xs text-white bg-[#7f99e8]`}>{skill.name}</p>)}
+                                {skills.map((skill) => <p className={`py-[2.5px] p-1.5 rounded text-xs text-white bg-[#5c7ad6]`}>{skill.name}</p>)}
                             </div>
                         </div>
                     </div>

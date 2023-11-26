@@ -101,7 +101,7 @@ function App() {
                     {/* <Route path="/about" element={<About isLight={isLight} />} /> */}
                 </Routes>
             </div>
-            <Footer />
+            <Footer isLight={isLight} />
         </div>
     );
 }
