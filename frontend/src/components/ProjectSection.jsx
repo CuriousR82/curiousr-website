@@ -1,7 +1,6 @@
 import { Client } from '@notionhq/client';
 import React, { useState, useEffect } from "react";
 import ProjectCard from './ProjectCard';
-import ScrollAnimation from 'react-animate-on-scroll';
 import '../App.css'
 
 

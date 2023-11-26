@@ -2,7 +2,6 @@ import React from "react";
 import Info from "../components/Info";
 import ProjectSection from "../components/ProjectSection";
 import ArtSection from "../components/ArtSection";
-import ScrollAnimation from 'react-animate-on-scroll';
 import ExperienceSection from "../components/ExperienceSection";
 import { NavLink } from "react-router-dom";
 
