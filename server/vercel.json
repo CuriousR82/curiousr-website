@@ -1,5 +1,9 @@
 {
     "version": 2,
     "builds": [{ "src": "./index.js", "use": "@vercel/node" }],
-    "routes": [{ "src": "/(.*)", "dest": "/" }]
+    "routes": [
+        { "src": "/project-data", "dest": "http://localhost:4000/project-data" },
+        { "src": "/art-data", "dest": "http://localhost:4000/art-data" },
+        { "src": "/(.*)", "dest": "/" }
+    ]
 }
