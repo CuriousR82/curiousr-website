@@ -10,7 +10,7 @@ import { useLocation } from 'react-router-dom';
 
 
 function App() {
-
+    const APILink = process.env.REACT_APP_VERCEL_SERVER_LINK;
     const location = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -25,7 +25,7 @@ function App() {
     const [artData, setArtData] = useState([]);
     const [artLoading, setArtLoading] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:4000/art-data')
+        fetch(`${APILink}/art-data`)
             .then((response) => {
                 // console.log("response")
                 // console.log(response)
@@ -49,7 +49,7 @@ function App() {
     const [projectData, setProjectData] = useState([]);
     const [projectLoading, setProjectLoading] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:4000/project-data')
+        fetch(`${APILink}/project-data`)
             .then((response) => {
                 // console.log("response")
                 // console.log(response)
@@ -73,7 +73,7 @@ function App() {
     const [expData, setExpData] = useState([]);
     const [expLoading, setExpLoading] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:4000/experience-data')
+        fetch(`${APILink}/experience-data`)
             .then((response) => {
                 // console.log("response")
                 // console.log(response)
@@ -97,7 +97,7 @@ function App() {
     const [personalData, setPersonalData] = useState([]);
     const [personalLoading, setPersonalLoading] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:4000/personal-data')
+        fetch(`${APILink}/personal-data`)
             .then((response) => {
                 // console.log("response")
                 // console.log(response)
