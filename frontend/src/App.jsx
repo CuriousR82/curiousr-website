@@ -96,25 +96,25 @@ function App() {
     // Personal Data
     const [personalData, setPersonalData] = useState([]);
     const [personalLoading, setPersonalLoading] = useState(true);
-    useEffect(() => {
-        fetch(`${APILink}/personal-data`)
-            .then((response) => {
-                // console.log("response")
-                // console.log(response)
-                response.json().then((dataFromServer) => {
-                    // console.log("data")
-                    // console.log(dataFromServer.results)
+    // useEffect(() => {
+    //     fetch(`${APILink}/personal-data`)
+    //         .then((response) => {
+    //             // console.log("response")
+    //             // console.log(response)
+    //             response.json().then((dataFromServer) => {
+    //                 // console.log("data")
+    //                 // console.log(dataFromServer.results)
 
-                    setPersonalData(dataFromServer.results);
-                    console.log(dataFromServer.results);
-                    setPersonalLoading(false);
-                })
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-                setPersonalLoading(false);
-            });
-    }, []);
+    //                 setPersonalData(dataFromServer.results);
+    //                 console.log(dataFromServer.results);
+    //                 setPersonalLoading(false);
+    //             })
+    //         })
+    //         .catch((error) => {
+    //             console.error('Error fetching data:', error);
+    //             setPersonalLoading(false);
+    //         });
+    // }, []);
 
     if (!artLoading && !projectLoading && !expLoading && !personalLoading) console.log("finished loading");
 
