@@ -4,21 +4,22 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Arts from "./pages/Arts";
-import About from "./pages/About";
 import { useState, useEffect } from "react";
 import Footer from "./components/Footer";
 import { useLocation } from 'react-router-dom';
 
 
 function App() {
-    const location = useLocation(); 
+
+    const location = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location]);
 
-    // fetch data here from 4000
     const [isLight, setIsLight] = useState(true);
     const toggleMode = () => { setIsLight(!isLight); };
+
+    // fetch data here from 4000
 
     // Art Data
     const [artData, setArtData] = useState([]);
@@ -34,6 +35,7 @@ function App() {
 
                     setArtData(dataFromServer.results);
                     console.log(dataFromServer.results);
+                    setArtLoading(false);
                     // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
                 })
             })
@@ -57,6 +59,7 @@ function App() {
 
                     setProjectData(dataFromServer.results);
                     console.log(dataFromServer.results);
+                    setProjectLoading(false);
                     // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
                 })
             })
@@ -80,6 +83,7 @@ function App() {
 
                     setExpData(dataFromServer.results);
                     console.log(dataFromServer.results);
+                    setExpLoading(false);
                     // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
                 })
             })
@@ -89,20 +93,48 @@ function App() {
             });
     }, []);
 
-    return (
+    // Personal Data
+    const [personalData, setPersonalData] = useState([]);
+    const [personalLoading, setPersonalLoading] = useState(true);
+    useEffect(() => {
+        fetch('http://localhost:4000/personal-data')
+            .then((response) => {
+                // console.log("response")
+                // console.log(response)
+                response.json().then((dataFromServer) => {
+                    // console.log("data")
+                    // console.log(dataFromServer.results)
 
-        <div className={`${isLight ? "lightMode" : "darkMode"} min-h-screen `}>
-            <Header toggleMode={toggleMode} isLight={isLight} />
-            <div className="">
-                <Routes>
-                    <Route path="/" element={<Home isLight={isLight} artData={artData} projectData={projectData} expData={expData} />} />
-                    <Route path="/projects" element={<Projects isLight={isLight} numItem={-1} projectData={projectData} />} />
-                    <Route path="/art" element={<Arts isLight={isLight} numItem={-1} artData={artData} />} />
-                    {/* <Route path="/about" element={<About isLight={isLight} />} /> */}
-                </Routes>
-            </div>
-            <Footer isLight={isLight} />
-        </div>
+                    setPersonalData(dataFromServer.results);
+                    console.log(dataFromServer.results);
+                    setPersonalLoading(false);
+                })
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+                setPersonalLoading(false);
+            });
+    }, []);
+
+    if (!artLoading && !projectLoading && !expLoading && !personalLoading) console.log("finished loading");
+
+    return (
+        <>
+            {(!artLoading && !projectLoading && !expLoading && !personalLoading) && (
+                <div className={`${isLight ? "lightMode" : "darkMode"} min-h-screen `}>
+                    <Header toggleMode={toggleMode} isLight={isLight} personalData={personalData} />
+                    <div className="">
+                        <Routes>
+                            <Route path="/" element={<Home isLight={isLight} personalData={personalData} artData={artData} projectData={projectData} expData={expData} />} />
+                            <Route path="/projects" element={<Projects isLight={isLight} numItem={-1} projectData={projectData} />} />
+                            <Route path="/art" element={<Arts isLight={isLight} numItem={-1} artData={artData} />} />
+                        </Routes>
+                    </div>
+                    <Footer isLight={isLight} personalData={personalData} />
+                </div>
+            )}
+        </>
+
     );
 }
 

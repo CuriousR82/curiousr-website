@@ -3,9 +3,13 @@ import React, { useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { DarkModeToggle } from '@anatoliygatt/dark-mode-toggle';
 import { Squash as Hamburger } from 'hamburger-react'
+import { ReactComponent as LinkedinLogo } from '../logos/linkedin.svg'
+import { ReactComponent as ResumeLogo } from '../logos/resume.svg'
+import { ReactComponent as GithubLogo } from '../logos/github.svg'
+import { ReactComponent as EmailLogo } from '../logos/mail.svg'
 import "../App.css"
 
-const Header = ({ toggleMode, isLight }) => {
+const Header = ({ toggleMode, isLight, personalData }) => {
     const [mode, setMode] = useState('light');
     const [isOpen, setOpen] = useState(false)
 
@@ -19,6 +23,11 @@ const Header = ({ toggleMode, isLight }) => {
         burgerColor = "bg-[#fef8f1c7]";
         textColor = "text-[#fef8f1c7]";
     }
+
+    const resumePdf = personalData[0].properties.Resume.files[0].file.url;
+    const githubUrl = personalData[0].properties.Github.url;
+    const linkedinUrl = personalData[0].properties.Linkedin.url;
+    const email = personalData[0].properties.Email.email;
 
     const navigate = useNavigate();
     const toSection = (str) => {
@@ -45,7 +54,7 @@ const Header = ({ toggleMode, isLight }) => {
             {/* PC header (md ~) */}
             <header className={`invisible md:visible header-class text-gray-600 body-font ${isLight ? "lightMode" : "darkMode"} z-20`}>
                 {/* pc header (md ~) */}
-                <div className=" container mx-auto flex flex-wrap px-10 py-4 flex-row items-center">
+                <div className=" container mx-auto flex flex-wrap px-10 sm:px-14 py-4 flex-row items-center">
                     <a className={`flex title-font font-semibold items-center ${textColor} md:mb-0`}>
                         <span className="text-2xl text-[#5c7ad6]">CuriousR</span>
                     </a>
@@ -66,28 +75,18 @@ const Header = ({ toggleMode, isLight }) => {
                         </button>
                     </nav>
 
-                    <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-                        <a className="text-gray-600">
-                            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                            </svg>
+                    <span className="flex flex-row gap-3 items-end mr-5">
+                        <a href={resumePdf} target='_blank'>
+                            <ResumeLogo className={`w-[14px] ${textColor} hover:text-[#5c7ad6]`} />
                         </a>
-                        <a className="ml-3 text-gray-600">
-                            <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                            </svg>
+                        <a href={githubUrl} target='_blank'>
+                            <GithubLogo className={`w-[18px] ${textColor} hover:text-[#5c7ad6]`} />
                         </a>
-                        <a className="ml-3 text-gray-600">
-                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                            </svg>
+                        <a href={linkedinUrl} target='_blank'>
+                            <LinkedinLogo className={`w-[18px] ${textColor} hover:text-[#5c7ad6]`} />
                         </a>
-                        <a className="ml-3 mr-5 text-gray-600">
-                            <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0" className="w-5 h-5" viewBox="0 0 24 24">
-                                <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
-                                <circle cx="4" cy="4" r="2" stroke="none"></circle>
-                            </svg>
+                        <a href={`mailto:${email}`} target='_blank'>
+                            <EmailLogo className={`w-[18px] ${textColor} hover:text-[#5c7ad6]`} />
                         </a>
                     </span>
 
@@ -115,7 +114,7 @@ const Header = ({ toggleMode, isLight }) => {
             {/* mobile header (~ md) */}
             <header className={`visible md:invisible header-class text-gray-600 body-font ${isOpen ? "shadow-[0_0px_25px_-5px_rgba(158,158,158,0.4)]" : ""} 
                                 ${isLight ? "lightMode" : "darkMode"} z-20`}>
-                <div className="transition container mx-auto flex flex-col px-10 py-2 gap-3 items-start">
+                <div className="transition container mx-auto flex flex-col px-10 sm:px-14 py-2 gap-3 items-start">
                     <div className="flex flex-row justify-between w-full">
                         <a className={`flex title-font font-semibold items-center ${textColor} mb-0`}>
                             <span className="text-2xl text-[#5c7ad6]">CuriousR</span>
@@ -142,30 +141,20 @@ const Header = ({ toggleMode, isLight }) => {
                             </nav>
 
                             <div className="fade-on-load flex flex-row w-full justify-between pb-3 items-center">
-                                <div className="flex flex-row gap-3 items-center">
-                                    <a className="text-gray-600">
-                                        <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                                        </svg>
+                                <span className="flex flex-row gap-3 items-end ">
+                                    <a href={resumePdf} target='_blank'>
+                                        <ResumeLogo className={`w-[14px] ${textColor} hover:text-[#5c7ad6]`} />
                                     </a>
-                                    <a className="text-gray-600">
-                                        <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-                                        </svg>
+                                    <a href={githubUrl} target='_blank'>
+                                        <GithubLogo className={`w-[18px] ${textColor} hover:text-[#5c7ad6]`} />
                                     </a>
-                                    <a className="text-gray-600">
-                                        <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
-                                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                                        </svg>
+                                    <a href={linkedinUrl} target='_blank'>
+                                        <LinkedinLogo className={`w-[18px] ${textColor} hover:text-[#5c7ad6]`} />
                                     </a>
-                                    <a className=" text-gray-600">
-                                        <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="0" className="w-5 h-5" viewBox="0 0 24 24">
-                                            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
-                                            <circle cx="4" cy="4" r="2" stroke="none"></circle>
-                                        </svg>
+                                    <a href={`mailto:${email}`} target='_blank'>
+                                        <EmailLogo className={`w-[18px] ${textColor} hover:text-[#5c7ad6]`} />
                                     </a>
-                                </div>
+                                </span>
 
                                 <button onClick={toggleMode} className="flex items-center">
                                     <DarkModeToggle
