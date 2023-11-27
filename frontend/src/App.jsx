@@ -48,26 +48,26 @@ function App() {
     // Project Data
     const [projectData, setProjectData] = useState([]);
     const [projectLoading, setProjectLoading] = useState(true);
-    // useEffect(() => {
-    //     fetch(`${APILink}/project-data`)
-    //         .then((response) => {
-    //             // console.log("response")
-    //             // console.log(response)
-    //             response.json().then((dataFromServer) => {
-    //                 // console.log("data")
-    //                 // console.log(dataFromServer.results)
+    useEffect(() => {
+        fetch(`${APILink}/project-data`)
+            .then((response) => {
+                // console.log("response")
+                // console.log(response)
+                response.json().then((dataFromServer) => {
+                    // console.log("data")
+                    // console.log(dataFromServer.results)
 
-    //                 setProjectData(dataFromServer.results);
-    //                 console.log(dataFromServer.results);
-    //                 setProjectLoading(false);
-    //                 // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
-    //             })
-    //         })
-    //         .catch((error) => {
-    //             console.error('Error fetching data:', error);
-    //             setProjectLoading(false);
-    //         });
-    // }, []);
+                    setProjectData(dataFromServer.results);
+                    console.log(dataFromServer.results);
+                    setProjectLoading(false);
+                    // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
+                })
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+                setProjectLoading(false);
+            });
+    }, []);
 
     // Experience Data
     const [expData, setExpData] = useState([]);
@@ -96,25 +96,25 @@ function App() {
     // Personal Data
     const [personalData, setPersonalData] = useState([]);
     const [personalLoading, setPersonalLoading] = useState(true);
-    // useEffect(() => {
-    //     fetch(`${APILink}/personal-data`)
-    //         .then((response) => {
-    //             // console.log("response")
-    //             // console.log(response)
-    //             response.json().then((dataFromServer) => {
-    //                 // console.log("data")
-    //                 // console.log(dataFromServer.results)
+    useEffect(() => {
+        fetch(`${APILink}/personal-data`)
+            .then((response) => {
+                // console.log("response")
+                // console.log(response)
+                response.json().then((dataFromServer) => {
+                    // console.log("data")
+                    // console.log(dataFromServer.results)
 
-    //                 setPersonalData(dataFromServer.results);
-    //                 console.log(dataFromServer.results);
-    //                 setPersonalLoading(false);
-    //             })
-    //         })
-    //         .catch((error) => {
-    //             console.error('Error fetching data:', error);
-    //             setPersonalLoading(false);
-    //         });
-    // }, []);
+                    setPersonalData(dataFromServer.results);
+                    console.log(dataFromServer.results);
+                    setPersonalLoading(false);
+                })
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+                setPersonalLoading(false);
+            });
+    }, []);
 
     if (!artLoading && !projectLoading && !expLoading && !personalLoading) console.log("finished loading");
 
