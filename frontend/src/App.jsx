@@ -24,26 +24,6 @@ function App() {
     // Art Data
     const [artData, setArtData] = useState([]);
     const [artLoading, setArtLoading] = useState(true);
-    // useEffect(() => {
-    //     fetch(`${APILink}/art-data`)
-    //         .then((response) => {
-    //             // console.log("response")
-    //             // console.log(response)
-    //             response.json().then((dataFromServer) => {
-    //                 // console.log("data")
-    //                 // console.log(dataFromServer.results)
-
-    //                 setArtData(dataFromServer.results);
-    //                 console.log(dataFromServer.results);
-    //                 setArtLoading(false);
-    //                 // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
-    //             })
-    //         })
-    //         .catch((error) => {
-    //             console.error('Error fetching data:', error);
-    //             setArtLoading(false);
-    //         });
-    // }, []);
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -70,72 +50,77 @@ function App() {
     const [projectData, setProjectData] = useState([]);
     const [projectLoading, setProjectLoading] = useState(true);
     useEffect(() => {
-        fetch(`${APILink}/project-data`)
-            .then((response) => {
-                // console.log("response")
-                // console.log(response)
-                response.json().then((dataFromServer) => {
-                    // console.log("data")
-                    // console.log(dataFromServer.results)
-
-                    setProjectData(dataFromServer.results);
-                    console.log(dataFromServer.results);
-                    setProjectLoading(false);
-                    // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
-                })
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-                setProjectLoading(false);
-            });
-    }, []);
+        const fetchData = async () => {
+          try {
+            const response = await fetch(`${APILink}/project-data`);
+            // console.log("new approach using AWAIT and ASYNC")
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+    
+            const dataFromServer = await response.json();
+            setProjectData(dataFromServer.results);
+            console.log(dataFromServer.results);
+            setProjectLoading(false);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            setProjectLoading(false);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     // Experience Data
     const [expData, setExpData] = useState([]);
     const [expLoading, setExpLoading] = useState(true);
     useEffect(() => {
-        fetch(`${APILink}/experience-data`)
-            .then((response) => {
-                // console.log("response")
-                // console.log(response)
-                response.json().then((dataFromServer) => {
-                    // console.log("data")
-                    // console.log(dataFromServer.results)
-
-                    setExpData(dataFromServer.results);
-                    console.log(dataFromServer.results);
-                    setExpLoading(false);
-                    // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
-                })
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-                setExpLoading(false);
-            });
-    }, []);
+        const fetchData = async () => {
+          try {
+            const response = await fetch(`${APILink}/experience-data`);
+            // console.log("new approach using AWAIT and ASYNC")
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+    
+            const dataFromServer = await response.json();
+            setExpData(dataFromServer.results);
+            console.log(dataFromServer.results);
+            setExpLoading(false);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            setExpLoading(false);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     // Personal Data
     const [personalData, setPersonalData] = useState([]);
     const [personalLoading, setPersonalLoading] = useState(true);
     useEffect(() => {
-        fetch(`${APILink}/personal-data`)
-            .then((response) => {
-                // console.log("response")
-                // console.log(response)
-                response.json().then((dataFromServer) => {
-                    // console.log("data")
-                    // console.log(dataFromServer.results)
+        const fetchData = async () => {
+          try {
+            const response = await fetch(`${APILink}/personal-data`);
+            // console.log("new approach using AWAIT and ASYNC")
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+    
+            const dataFromServer = await response.json();
+            setPersonalData(dataFromServer.results);
+            console.log(dataFromServer.results);
+            setPersonalLoading(false);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            setPersonalLoading(false);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
-                    setPersonalData(dataFromServer.results);
-                    console.log(dataFromServer.results);
-                    setPersonalLoading(false);
-                })
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-                setPersonalLoading(false);
-            });
-    }, []);
 
     if (!artLoading && !projectLoading && !expLoading && !personalLoading) console.log("finished loading");
 
