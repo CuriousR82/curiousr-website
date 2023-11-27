@@ -24,26 +24,47 @@ function App() {
     // Art Data
     const [artData, setArtData] = useState([]);
     const [artLoading, setArtLoading] = useState(true);
-    useEffect(() => {
-        fetch(`${APILink}/art-data`)
-            .then((response) => {
-                // console.log("response")
-                // console.log(response)
-                response.json().then((dataFromServer) => {
-                    // console.log("data")
-                    // console.log(dataFromServer.results)
+    // useEffect(() => {
+    //     fetch(`${APILink}/art-data`)
+    //         .then((response) => {
+    //             // console.log("response")
+    //             // console.log(response)
+    //             response.json().then((dataFromServer) => {
+    //                 // console.log("data")
+    //                 // console.log(dataFromServer.results)
 
-                    setArtData(dataFromServer.results);
-                    console.log(dataFromServer.results);
-                    setArtLoading(false);
-                    // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
-                })
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-                setArtLoading(false);
-            });
-    }, []);
+    //                 setArtData(dataFromServer.results);
+    //                 console.log(dataFromServer.results);
+    //                 setArtLoading(false);
+    //                 // console.log(dataFromServer.results[0].properties.Name.title[0].plain_text);
+    //             })
+    //         })
+    //         .catch((error) => {
+    //             console.error('Error fetching data:', error);
+    //             setArtLoading(false);
+    //         });
+    // }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch(`${APILink}/art-data`);
+            // console.log("new approach using AWAIT and ASYNC")
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+    
+            const dataFromServer = await response.json();
+            setArtData(dataFromServer.results);
+            console.log(dataFromServer.results);
+            setArtLoading(false);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            setArtLoading(false);
+          }
+        };
+    
+        fetchData();
+      }, []);
 
     // Project Data
     const [projectData, setProjectData] = useState([]);
