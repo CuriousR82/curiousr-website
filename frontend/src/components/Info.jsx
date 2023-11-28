@@ -29,12 +29,12 @@ const Info = ({ isLight, personalData }) => {
     return (
         <>
             <div id='info-section' className="flex flex-col py-24 px-10 sm:px-14 items-start text-left mb-0 md:mb-12 ">
-                <h1 className={`title-font sm:text-4xl text-2xl mb-4 font-medium ${textColor}`}>{titleText}
+                <h1 className={`title-font text-4xl mb-4 font-bold ${textColor}`}>{titleText}
                 </h1>
-                <p className="mb-8 leading-relaxed text-[#808080] md:w-2/3 sm:text-base text-sm">{desc1}<br></br>
+                <p className="mb-8 leading-relaxed text-[#808080] md:w-2/3 text-base ">{desc1}<br></br>
                     {desc2}</p>
                 <div className="flex justify-start items-end gap-3">
-                    <button className="items-center text-white bg-[#5c7ad6] flex border-0 h-8 px-3 focus:outline-none hover:bg-[#fef8f1c7] rounded text-lg">
+                    <button className="items-center text-white bg-[#5c7ad6] flex border-0 h-8 px-3 focus:outline-none hover:bg-[#808080] rounded text-lg">
                         <a href={resumePdf} target='_blank'>
                             <div className='flex flex-row gap-2 text-base items-center'>
                                 <ResumeLogo className='w-3' />
