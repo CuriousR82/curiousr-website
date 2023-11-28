@@ -29,7 +29,7 @@ const Info = ({ isLight, personalData }) => {
     return (
         <>
             <div id='info-section' className="flex flex-col py-24 px-10 sm:px-14 items-start text-left mb-0 md:mb-12 ">
-                <h1 className={`title-font text-4xl mb-4 font-bold ${textColor}`}>{titleText}
+                <h1 className={`title-font text-5xl mb-4 font-semibold ${textColor}`}>{titleText}
                 </h1>
                 <p className="mb-8 leading-relaxed text-[#808080] md:w-2/3 text-base ">{desc1}<br></br>
                     {desc2}</p>
