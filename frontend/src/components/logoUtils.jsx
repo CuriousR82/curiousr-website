@@ -22,6 +22,8 @@ import { ReactComponent as PythonLight } from "../logos/python-light.svg";
 import { ReactComponent as PythonDark } from "../logos/python-dark.svg";
 import { ReactComponent as CPPLight } from "../logos/cpp-light.svg";
 import { ReactComponent as CPPDark } from "../logos/cpp-dark.svg";
+import { ReactComponent as TailwindLight } from "../logos/tailwind-light.svg";
+import { ReactComponent as TailwindDark } from "../logos/tailwind-dark.svg";
 
 function strToLogo(str, isLight) {
         // console.log("srttologo called")
@@ -51,6 +53,8 @@ function strToLogo(str, isLight) {
                     return <PythonLight className={"w-[20px] h-[20px]"} />
                 case "C++":
                     return <CPPLight className={"w-[26px] h-[26px]"} />
+                case "TailwindCSS":
+                    return <TailwindLight className={"w-[26px] h-[26px]"} />
                 default:
                     return <></>
             }
@@ -80,6 +84,8 @@ function strToLogo(str, isLight) {
                     return <PythonDark className={"w-[20px] h-[20px]"} />
                 case "C++":
                     return <CPPDark className={"w-[26px] h-[26px]"} />
+                case "TailwindCSS":
+                    return <TailwindDark className={"w-[26px] h-[26px]"} />
                 default:
                     return <></>
             }
