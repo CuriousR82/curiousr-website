@@ -7,7 +7,9 @@ const ProjectCard = ({ data, projectKey, isLight }) => {
     const projectTitle = data.properties.Name.title[0].plain_text;
     const description = data.properties.Description.rich_text[0].plain_text;
     const githubUrl = data.properties.Github.url;
+    const linkUrl = data.properties.Link.url || data.properties.Github.url;
     const imageUrl = data.cover.file?.url || data.cover.external.url;
+    console.log("no err")
 
     let burgerColor;
     let textColor;
@@ -55,7 +57,7 @@ const ProjectCard = ({ data, projectKey, isLight }) => {
                                     </a>
                                 </span>
                                 <span className="text-gray-400 inline-flex items-center leading-none text-sm">
-                                    <a href={`${githubUrl}`} target='_blank'>
+                                    <a href={`${linkUrl}`} target='_blank'>
                                         <LinkLogo className={`w-[20px] h-[20px] ${textColor} hover:text-[#5c7ad6] transition`} />
                                     </a>
                                 </span>

@@ -12,6 +12,7 @@ const Info = ({ isLight, personalData }) => {
     const linkedinUrl = personalData[0].properties.Linkedin.url;
     const resumePdf = personalData[0].properties.Resume.files[0].file.url;
     const email = personalData[0].properties.Email.email;
+    const imageUrl = personalData[0].cover.file?.url || personalData[0].cover.external.url;
 
     let burgerColor;
     let textColor;
@@ -27,11 +28,13 @@ const Info = ({ isLight, personalData }) => {
     // nice point colour : bg-[#5c7ad6] button colour
 
     return (
-        <>
-            <div id='info-section' className="flex flex-col py-24 px-10 sm:px-14 items-start text-left mb-0 md:mb-12 ">
+        <>  
+        <div className='flex flex-row py-18 px-10 justify-between items-center sm:px-14 mb-0 md:mb-12'>
+
+            <div id='info-section' className="flex flex-col items-start text-left ">
                 <h1 className={`title-font text-5xl mb-4 font-semibold ${textColor}`}>{titleText}
                 </h1>
-                <p className="mb-8 leading-relaxed text-[#808080] md:w-2/3 text-base ">{desc1}<br></br>
+                <p className="mb-8 leading-relaxed text-[#808080] text-base ">{desc1}<br></br>
                     {desc2}</p>
                 <div className="flex justify-start items-end gap-3">
                     <button className="items-center text-white bg-[#5c7ad6] flex border-0 h-8 px-3 focus:outline-none hover:bg-[#808080] rounded text-lg">
@@ -56,6 +59,8 @@ const Info = ({ isLight, personalData }) => {
 
                 </div>
             </div>
+            <div className="invisible w-[0px] md:visible md:w-1/3"><img src={imageUrl} alt='CuriousR Logo'></img></div>
+        </div>
         </>
     )
 }
