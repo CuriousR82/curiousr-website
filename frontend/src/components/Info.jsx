@@ -5,14 +5,14 @@ import { ReactComponent as GithubLogo } from '../logos/github.svg'
 import { ReactComponent as EmailLogo } from '../logos/mail.svg'
 
 const Info = ({ isLight, personalData }) => {
-    const titleText = personalData[0].properties.Title.title[0].plain_text;
-    const desc1 = personalData[0].properties.Description1.rich_text[0].plain_text;
-    const desc2 = personalData[0].properties.Description2.rich_text[0].plain_text;
-    const githubUrl = personalData[0].properties.Github.url;
-    const linkedinUrl = personalData[0].properties.Linkedin.url;
-    const resumePdf = personalData[0].properties.Resume.files[0].file.url;
-    const email = personalData[0].properties.Email.email;
-    const imageUrl = personalData[0].cover.file?.url || personalData[0].cover.external.url;
+    const titleText = personalData[0].properties.Title.title[0]?.plain_text || "Untitled";
+    const desc1 = personalData[0].properties.Description1.rich_text[0]?.plain_text || "No description available";
+    const desc2 = personalData[0].properties.Description2.rich_text[0]?.plain_text || "No description available";
+    const githubUrl = personalData[0].properties.Github.url || "";
+    const linkedinUrl = personalData[0].properties.Linkedin.url || "";
+    const resumePdf = personalData[0].properties.Resume.files[0]?.file.url || "";
+    const email = personalData[0].properties.Email.email || "";
+    const imageUrl = personalData[0].cover.file?.url || personalData[0].cover.external.url || "";
 
     let burgerColor;
     let textColor;

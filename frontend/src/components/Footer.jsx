@@ -7,10 +7,10 @@ export default function Footer({ isLight, personalData }) {
 
     let bgColour = isLight ? "bg-gray-100" : "bg-[#333333]";
     let textColor = isLight ? "text-[#2e313c]" : "text-[#fef8f1c7]";
-    const resumePdf = personalData[0].properties.Resume.files[0].file.url;
-    const githubUrl = personalData[0].properties.Github.url;
-    const linkedinUrl = personalData[0].properties.Linkedin.url;
-    const email = personalData[0].properties.Email.email;
+    const resumePdf = personalData[0].properties.Resume.files[0]?.file.url || "";
+    const githubUrl = personalData[0].properties.Github.url || "";
+    const linkedinUrl = personalData[0].properties.Linkedin.url || "";
+    const email = personalData[0].properties.Email.email || "";
 
     return (
 
