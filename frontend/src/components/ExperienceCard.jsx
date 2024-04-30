@@ -1,12 +1,12 @@
 import React from 'react'
 
 const ExperienceCard = ({ isLight, exp }) => {
-    const companyName = exp.properties.Company.rich_text[0].plain_text;
-    const positionName = exp.properties.Title.title[0].plain_text;
-    const location = exp.properties.Location.rich_text[0].plain_text;
-    const description = exp.properties.Description.rich_text[0].plain_text;
-    const imageUrl = exp.cover.file?.url || exp.cover.external.url;
-    const skills = exp.properties.Skills.multi_select;
+    const companyName = exp.properties.Company.rich_text[0]?.plain_text || "Untitled";
+    const positionName = exp.properties.Title.title[0]?.plain_text || "No title";
+    const location = exp.properties.Location.rich_text[0]?.plain_text || "No location";
+    const description = exp.properties.Description.rich_text[0]?.plain_text || "No description available";
+    const imageUrl = exp.cover.file?.url || exp.cover.external?.url || "";
+    const skills = exp.properties.Skills.multi_select || [];
     const startDate = exp.properties.Date.date.start || "Incoming";
     const endDate = exp.properties.Date.date.end || "Present";
 

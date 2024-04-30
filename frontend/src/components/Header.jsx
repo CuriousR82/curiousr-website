@@ -24,10 +24,10 @@ const Header = ({ toggleMode, isLight, personalData }) => {
         textColor = "text-[#fef8f1c7]";
     }
 
-    const resumePdf = personalData[0].properties.Resume.files[0].file.url;
-    const githubUrl = personalData[0].properties.Github.url;
-    const linkedinUrl = personalData[0].properties.Linkedin.url;
-    const email = personalData[0].properties.Email.email;
+    const resumePdf = personalData[0].properties.Resume.files[0]?.file.url || "";
+    const githubUrl = personalData[0].properties.Github.url || "";
+    const linkedinUrl = personalData[0].properties.Linkedin.url || "";
+    const email = personalData[0].properties.Email.email || "";
 
     const navigate = useNavigate();
     const toSection = (str) => {

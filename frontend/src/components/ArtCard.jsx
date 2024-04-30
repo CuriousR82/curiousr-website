@@ -1,10 +1,10 @@
 import React from 'react'
 
 const ArtCard = ({ data, artKey, isLight }) => {
-    const projectTitle = data.properties.Name.title[0].plain_text;
-    const description = data.properties.Description.rich_text[0].plain_text;
-    const portfolioUrl = data.properties.Portfolio.url;
-    const imageUrl = data.cover.file?.url || data.cover.external.url;
+    const projectTitle = data.properties.Name.title[0]?.plain_text || "Untitled"; 
+    const description = data.properties.Description.rich_text[0]?.plain_text || "No description available";
+    const portfolioUrl = data.properties.Portfolio.url || "";
+    const imageUrl = data.cover.file?.url || data.cover.external?.url || "";
 
     let burgerColor;
     let textColor;

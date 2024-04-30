@@ -4,11 +4,11 @@ import { ReactComponent as GithubLogo } from '../logos/github.svg'
 import { ReactComponent as LinkLogo } from '../logos/link.svg'
 
 const ProjectCard = ({ data, projectKey, isLight }) => {
-    const projectTitle = data.properties.Name.title[0].plain_text;
-    const description = data.properties.Description.rich_text[0].plain_text;
-    const githubUrl = data.properties.Github.url;
-    const linkUrl = data.properties.Link.url || data.properties.Github.url;
-    const imageUrl = data.cover.file?.url || data.cover.external.url;
+    const projectTitle = data.properties.Name.title[0]?.plain_text || "Untitled";
+    const description = data.properties.Description.rich_text[0]?.plain_text || "No description available";
+    const githubUrl = data.properties.Github.url || "";
+    const linkUrl = data.properties.Link.url || data.properties.Github.url || "";
+    const imageUrl = data.cover.file?.url || data.cover.external.url || "";
     console.log("no err")
 
     let burgerColor;
