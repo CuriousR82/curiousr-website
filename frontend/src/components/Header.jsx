@@ -13,16 +13,8 @@ const Header = ({ toggleMode, isLight, personalData }) => {
     const [mode, setMode] = useState('light');
     const [isOpen, setOpen] = useState(false)
 
-    let burgerColor;
     let textColor;
-
-    if (isLight) {
-        burgerColor = "bg-[#2e313c]";
-        textColor = "text-[#2e313c]";
-    } else {
-        burgerColor = "bg-[#fef8f1c7]";
-        textColor = "text-[#fef8f1c7]";
-    }
+    textColor = isLight ? "text-[#2e313c]" : "text-[#fef8f1c7]";
 
     const resumePdf = personalData[0].properties.Resume.files[0]?.file.url || "";
     const githubUrl = personalData[0].properties.Github.url || "";
@@ -52,25 +44,25 @@ const Header = ({ toggleMode, isLight, personalData }) => {
     return (
         <>
             {/* PC header (md ~) */}
-            <header className={`invisible md:visible header-class text-gray-600 body-font ${isLight ? "lightMode" : "darkMode"} z-20`}>
+            <header className={`invisible md:visible header-class text-gray-600 body-font ${isLight ? "lightMode" : "darkMode"} z-50`}>
                 {/* pc header (md ~) */}
                 <div className=" container mx-auto flex flex-wrap px-10 sm:px-14 py-4 flex-row items-center">
                     <a className={`flex title-font font-semibold items-center ${textColor} md:mb-0`}>
-                        <span className="text-2xl text-[#5c7ad6]">CuriousR</span>
+                        <span className={`rajdhani-bold text-2xl ${textColor}`}>CuriousR</span>
                     </a>
                     <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
 
-                        <button onClick={() => toSection("home-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6] `}>
+                        <button onClick={() => toSection("home-section")} className={`rajdhani-semibold mr-5 text-[#6186E5] hover:${textColor} `}>
                             HOME
                         </button>
-                        <button onClick={() => toSection("experience-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6] `}>
+                        <button onClick={() => toSection("experience-section")} className={`rajdhani-semibold mr-5 text-[#E45858] hover:text-[#5c7ad6] `}>
                             EXPERIENCES
                         </button>
 
-                        <button onClick={() => toSection("project-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
+                        <button onClick={() => toSection("project-section")} className={`rajdhani-semibold mr-5 text-[#2BA60C] hover:text-[#5c7ad6]`}>
                             PROJECTS
                         </button>
-                        <button onClick={() => toSection("art-section")} className={` mr-5 ${textColor} hover:text-[#5c7ad6]`}>
+                        <button onClick={() => toSection("art-section")} className={`rajdhani-semibold mr-5 text-[#E4A358] hover:text-[#5c7ad6]`}>
                             ART
                         </button>
                     </nav>
@@ -113,7 +105,7 @@ const Header = ({ toggleMode, isLight, personalData }) => {
 
             {/* mobile header (~ md) */}
             <header className={`visible md:invisible header-class text-gray-600 body-font ${isOpen ? "shadow-[0_0px_25px_-5px_rgba(158,158,158,0.4)]" : ""} 
-                                ${isLight ? "lightMode" : "darkMode"} z-20`}>
+                                ${isLight ? "lightMode" : "darkMode"} z-50`}>
                 <div className="transition container mx-auto flex flex-col px-10 sm:px-14 py-2 gap-3 items-start">
                     <div className="flex flex-row justify-between w-full">
                         <a className={`flex title-font font-semibold items-center ${textColor} mb-0`}>

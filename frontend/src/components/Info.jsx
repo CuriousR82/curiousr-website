@@ -14,16 +14,9 @@ const Info = ({ isLight, personalData }) => {
     const email = personalData[0].properties.Email.email || "";
     const imageUrl = personalData[0].cover.file?.url || personalData[0].cover.external.url || "";
 
-    let burgerColor;
-    let textColor;
-
-    if (isLight) {
-        burgerColor = "bg-[#2e313c]";
-        textColor = "text-[#2e313c]";
-    } else {
-        burgerColor = "bg-[#fef8f1c7]";
-        textColor = "text-[#fef8f1c7]";
-    }
+    let textColor, buttonColor;
+    textColor = isLight ? "text-[#2e313c]" : "text-[#fef8f1c7]";
+    buttonColor = isLight ? "border-[#2e313c]" : "border-[#fef8f1c7]";
 
     // nice point colour : bg-[#5c7ad6] button colour
 
@@ -32,14 +25,14 @@ const Info = ({ isLight, personalData }) => {
         <div className='flex flex-row py-18 px-10 justify-between items-center sm:px-14 mb-0 md:mb-12'>
 
             <div id='info-section' className="flex flex-col items-start text-left ">
-                <h1 className={`title-font text-5xl mb-4 font-semibold ${textColor}`}>{titleText}
+                <h1 className={`rajdhani-semibold title-font text-8xl mb-4 font-semibold ${textColor}`}>{titleText}
                 </h1>
-                <p className="mb-8 leading-relaxed text-[#808080] text-base ">{desc1}<br></br>
+                <p className={`rajdhani-medium mb-8 leading-relaxed ${textColor} text-lg`}>{desc1}<br></br>
                     {desc2}</p>
                 <div className="flex justify-start items-end gap-3">
-                    <button className="items-center text-white bg-[#5c7ad6] flex border-0 h-8 px-3 focus:outline-none hover:bg-[#808080] rounded text-lg">
+                    <button className={`items-center ${textColor} bg-transparent flex border-2 ${buttonColor} h-8 px-3 focus:outline-none hover:bg-[#808080] rounded text-lg`}>
                         <a href={resumePdf} target='_blank'>
-                            <div className='flex flex-row gap-2 text-base items-center'>
+                            <div className='rajdhani-semibold flex flex-row gap-2 text-base items-center'>
                                 <ResumeLogo className='w-3' />
                                 Resume
                             </div>

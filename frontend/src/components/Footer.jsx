@@ -5,7 +5,7 @@ import { ReactComponent as EmailLogo } from '../logos/mail.svg'
 
 export default function Footer({ isLight, personalData }) {
 
-    let bgColour = isLight ? "bg-gray-100" : "bg-[#333333]";
+    // let bgColour = isLight ? "bg-gray-100" : "bg-[#333333]";
     let textColor = isLight ? "text-[#2e313c]" : "text-[#fef8f1c7]";
     const resumePdf = personalData[0].properties.Resume.files[0]?.file.url || "";
     const githubUrl = personalData[0].properties.Github.url || "";
@@ -17,12 +17,12 @@ export default function Footer({ isLight, personalData }) {
         <>
             <footer className={`${textColor} body-font`}>
 
-                <div className={`footer-transition ${bgColour}`}>
-                    <div className="container px-10 sm:px-14 py-6 sm:items-end flex flex-col gap-2 sm:gap-0 justify-start sm:flex-row sm:justify-between">
+                <div className={`footer-transition bg-transparent`}>
+                    <div className="container mx-auto px-10 sm:px-14 py-6 sm:items-end flex flex-col gap-2 sm:gap-0 justify-start sm:flex-row sm:justify-between">
                         <a className="flex title-font font-medium items-center ">
-                            <span className="text-xl">CuriousR</span>
+                            <span className="rajdhani-medium text-xl">CuriousR</span>
                         </a>
-                        <p className="text-xs sm:mb-1">Automated with Notion API, by Rosa Jeon :)</p>
+                        <p className="rajdhani-medium text-sm sm:mb-1">Automated with Notion API, by Rosa Jeon :)</p>
                         <span className="mb-1">
                             <span className="flex flex-row gap-3 items-end">
                                 <a href={resumePdf} target='_blank'>
