@@ -14,8 +14,9 @@ const Info = ({ isLight, personalData }) => {
     const email = personalData[0].properties.Email.email || "";
     const imageUrl = personalData[0].cover.file?.url || personalData[0].cover.external.url || "";
 
-    let textColor, reverseColor, tagTextColor;
+    let textColor, reverseColor, tagTextColor, bgColor;
     textColor = isLight ? "text-[#2e313c]" : "text-[#fef8f1c7]";
+    bgColor = isLight ? "bg-[#2e313c]" : "bg-[#fef8f1c7]";
     reverseColor = isLight ? "#2e313c" : "#fef8f1c7";
     tagTextColor = isLight ? "text-[#F8F5EF]" : "text-[#292929]";
 
@@ -31,7 +32,7 @@ const Info = ({ isLight, personalData }) => {
                 <p className={`rajdhani-medium mb-8 leading-relaxed ${textColor} text-lg`}>{desc1}<br></br>
                     {desc2}</p>
                 <div className="flex justify-start items-end gap-3">
-                    <button className={`items-center ${tagTextColor} bg-[${reverseColor}] flex h-8 px-3 focus:outline-none hover:bg-[#6186E5] rounded text-lg`}>
+                    <button className={`items-center ${tagTextColor} ${bgColor} flex h-8 px-3 focus:outline-none hover:bg-[#6186E5] rounded text-lg`}>
                         <a href={resumePdf} target='_blank'>
                             <div className='rajdhani-semibold flex flex-row gap-2 text-base items-center'>
                                 <ResumeLogo className='w-3' />
