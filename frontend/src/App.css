@@ -5,14 +5,14 @@
 
 
 .lightMode {
-    background-color: white;
+    background-color: #F8F5EF;
     /* color: #fef8f1c7; */
     /* color: black; */
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .darkMode {
-    background-color: rgb(41, 41, 41);
+    background-color: #292929;
     /* color: white; */
     transition: background-color 0.5s ease, color 0.5s ease;
 }
@@ -42,4 +42,36 @@
 .header-class {
     position: fixed !important;
     width: 100%;
+}
+
+/* FONT SECTION */
+.rajdhani-light {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.rajdhani-regular {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.rajdhani-medium {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.rajdhani-semibold {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+.rajdhani-bold {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
