@@ -25,7 +25,7 @@ const Home = ({ isLight, personalData, artData, projectData, expData }) => {
                 <section id="project-section" className="pt-32">
                     <div className="flex flex-row justify-between items-center px-10 sm:px-14">
                         <h1 className={`rajdhani-bold text-3xl font-semibold ${textColor}`}>Projects</h1>
-                        <NavLink to="/projects" className={`${textColor} hover:text-slate-400`}>See all</NavLink>
+                        <NavLink to="/projects" className={`${textColor} hover:text-[#2BA60C]`}>See all</NavLink>
                     </div>
                     <ProjectSection isLight={isLight} numItem={3} projectData={projectData} />
                 </section>
@@ -33,7 +33,7 @@ const Home = ({ isLight, personalData, artData, projectData, expData }) => {
                 <section id="art-section" className="pt-32">
                     <div className="flex flex-row justify-between items-center px-10 sm:px-14">
                         <h1 className={`rajdhani-bold text-3xl font-semibold ${textColor}`}>Arts</h1>
-                        <NavLink to="/art" className={`${textColor} hover:text-slate-400`}>See all</NavLink>
+                        <NavLink to="/art" className={`${textColor} hover:text-[#E4A358]`}>See all</NavLink>
                     </div>
                     <ArtSection isLight={isLight} numItem={3} artData={artData} />
                 </section>

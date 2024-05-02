@@ -26,16 +26,16 @@ export default function Footer({ isLight, personalData }) {
                         <span className="mb-1">
                             <span className="flex flex-row gap-3 items-end">
                                 <a href={resumePdf} target='_blank'>
-                                    <ResumeLogo className={`w-[14px] ${textColor} hover:text-[#5c7ad6]`} />
+                                    <ResumeLogo className={`w-[14px] ${textColor} hover:text-[#6186E5]`} />
                                 </a>
                                 <a href={githubUrl} target='_blank'>
-                                    <GithubLogo className={`w-[18px] ${textColor} hover:text-[#5c7ad6]`} />
+                                    <GithubLogo className={`w-[18px] ${textColor} hover:text-[#2BA60C]`} />
                                 </a>
                                 <a href={linkedinUrl} target='_blank'>
-                                    <LinkedinLogo className={`w-[18px] ${textColor} hover:text-[#5c7ad6]`} />
+                                    <LinkedinLogo className={`w-[18px] ${textColor} hover:text-[#E45858]`} />
                                 </a>
                                 <a href={`mailto:${email}`} target='_blank'>
-                                    <EmailLogo className={`w-[18px] ${textColor} hover:text-[#5c7ad6]`} />
+                                    <EmailLogo className={`w-[18px] ${textColor} hover:text-[#E4A358]`} />
                                 </a>
                             </span>
                         </span>
