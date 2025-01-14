@@ -10,7 +10,7 @@ const Info = ({ isLight, personalData }) => {
     const desc2 = personalData[0].properties.Description2.rich_text[0]?.plain_text || "No description available";
     const githubUrl = personalData[0].properties.Github.url || "";
     const linkedinUrl = personalData[0].properties.Linkedin.url || "";
-    const resumePdf = personalData[0].properties.Resume.files[0]?.file.url || "";
+    // const resumePdf = personalData[0].properties.Resume.files[0]?.file.url || "";
     const email = personalData[0].properties.Email.email || "";
     const imageUrl = personalData[0].cover.file?.url || personalData[0].cover.external.url || "";
 
@@ -32,14 +32,14 @@ const Info = ({ isLight, personalData }) => {
                 <p className={`rajdhani-medium mb-8 leading-relaxed ${textColor} text-lg`}>{desc1}<br></br>
                     {desc2}</p>
                 <div className="flex justify-start items-end gap-3">
-                    <button className={`items-center ${tagTextColor} ${bgColor} flex h-8 px-3 focus:outline-none hover:bg-[#6186E5] rounded text-lg`}>
+                    {/* <button className={`items-center ${tagTextColor} ${bgColor} flex h-8 px-3 focus:outline-none hover:bg-[#6186E5] rounded text-lg`}>
                         <a href={resumePdf} target='_blank'>
                             <div className='rajdhani-semibold flex flex-row gap-2 text-base items-center'>
                                 <ResumeLogo className='w-3' />
                                 Resume
                             </div>
                         </a>
-                    </button>
+                    </button> */}
                     <div className={`flex flex-row gap-2.5 items-end mb-1`}>
                         <a href={githubUrl} target='_blank'>
                             <GithubLogo className={`w-[20px] ${textColor} hover:text-[#2BA60C]`} />

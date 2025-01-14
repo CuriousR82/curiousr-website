@@ -7,7 +7,7 @@ export default function Footer({ isLight, personalData }) {
 
     // let bgColour = isLight ? "bg-gray-100" : "bg-[#333333]";
     let textColor = isLight ? "text-[#2e313c]" : "text-[#fef8f1c7]";
-    const resumePdf = personalData[0].properties.Resume.files[0]?.file.url || "";
+    // const resumePdf = personalData[0].properties.Resume.files[0]?.file.url || "";
     const githubUrl = personalData[0].properties.Github.url || "";
     const linkedinUrl = personalData[0].properties.Linkedin.url || "";
     const email = personalData[0].properties.Email.email || "";
@@ -25,9 +25,9 @@ export default function Footer({ isLight, personalData }) {
                         <p className="rajdhani-medium text-sm sm:mb-1">Automated with Notion API, by Rosa Jeon :)</p>
                         <span className="mb-1">
                             <span className="flex flex-row gap-3 items-end">
-                                <a href={resumePdf} target='_blank'>
+                                {/* <a href={resumePdf} target='_blank'>
                                     <ResumeLogo className={`w-[14px] ${textColor} hover:text-[#6186E5]`} />
-                                </a>
+                                </a> */}
                                 <a href={githubUrl} target='_blank'>
                                     <GithubLogo className={`w-[18px] ${textColor} hover:text-[#2BA60C]`} />
                                 </a>
