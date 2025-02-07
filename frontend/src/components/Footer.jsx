@@ -31,9 +31,11 @@ export default function Footer({ isLight, personalData }) {
                                 <a href={githubUrl} target='_blank'>
                                     <GithubLogo className={`w-[18px] ${textColor} hover:text-[#2BA60C]`} />
                                 </a>
-                                <a href={linkedinUrl} target='_blank'>
-                                    <LinkedinLogo className={`w-[18px] ${textColor} hover:text-[#E45858]`} />
-                                </a>
+                                {/*
+                                    <a href={linkedinUrl} target='_blank'>
+                                        <LinkedinLogo className={`w-[18px] ${textColor} hover:text-[#E45858]`} />
+                                    </a>
+                                */}
                                 <a href={`mailto:${email}`} target='_blank'>
                                     <EmailLogo className={`w-[18px] ${textColor} hover:text-[#E4A358]`} />
                                 </a>
